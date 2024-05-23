@@ -1,0 +1,31 @@
+{
+  "name": "performant-node",
+  "version": "1.0.0",
+  "description": "A Node.js project demonstrating how to call C++ from Node.js using node-addon-api.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "clean": "node-gyp clean",
+    "build": "node-gyp configure build",
+    "rebuild": "npm run clean && npm run build",
+    "buildstart": "npm run build && node index.js",
+    "format": "npm-run-all --parallel format:prettier format:clang",
+    "format:prettier": "npx prettier . --write",
+    "format:clang": "find . -name \"*.cpp\" -exec clang-format -i {} \\;",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "node-addon-api": "^8.0.0"
+  },
+  "devDependencies": {
+    "node-gyp": "^10.1.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "3.2.5"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
